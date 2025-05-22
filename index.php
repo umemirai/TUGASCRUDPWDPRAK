@@ -37,7 +37,7 @@ $dataHewan = $db->getDataHewan();
                     <td class="type"><?= $hewan['jenis'] ?></td>
                     <td><?= $hewan['usia'] ?> years</td>
                     <td>
-                       <!-- Link ke form edit -->
+                    
                     <a href="crud/form-petshop-edit.php?id=<?= $hewan['id'] ?>" class="edit-btn">Edit</a>
                     <a href="crud/delete.php?id=<?= $hewan['id'] ?>" class="delete-btn" onclick="return confirm('Yakin ingin menghapus data ini?');">Delete</a>
 

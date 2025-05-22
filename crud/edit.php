@@ -8,7 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usia       = $_POST['usia'] ?? null;
     $coverLama  = $_POST['cover_lama'] ?? null;
 
-    // Cek jika file gambar baru diupload
     $coverBaru = $_FILES['cover']['name'] ?? '';
     $coverFinal = $coverLama;
 
@@ -22,13 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Validasi dasar
     if (!$id || !$nama || !$jenis || !$usia) {
         header('Location: ../../index.php?module=hewan&page=form-edit&id=' . $id . '&pesan=gagal');
         exit;
     }
 
-    // Update database
     $db = new Database();
     $sql = "UPDATE hewan SET nama_hewan = :nama, jenis = :jenis, usia = :usia, cover = :cover WHERE id = :id";
     $stmt = $db->conn->prepare($sql);
